@@ -1,0 +1,9 @@
+/* src/components/TodoList.css */
+.todo-list {
+    margin-top: 20px;
+  }
+  
+  .completed-todo .todo-title {
+    text-decoration: line-through;
+    color: #999;
+  }
