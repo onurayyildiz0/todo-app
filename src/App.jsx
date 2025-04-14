@@ -11,8 +11,8 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [currentView, setCurrentView] = useState('list'); 
-  const [selectedTodo, setSelectedTodo] = useState(null); 
+  const [currentView, setCurrentView] = useState('list');
+  const [selectedTodo, setSelectedTodo] = useState(null);
 
   useEffect(() => {
     const getTodos = async () => {
@@ -48,9 +48,9 @@ function App() {
   const handleDelete = async () => {
     if (!selectedTodo) return;
     try {
-      await deleteTodo(selectedTodo.row_id); // `row_id` ile görevi sil
-      refreshTodos(); // Görev listesini yenile
-      setCurrentView('list'); // Liste görünümüne geri dön
+      await deleteTodo(selectedTodo.row_id);
+      refreshTodos();
+      setCurrentView('list');
     } catch (error) {
       console.error('Error deleting todo:', error);
     }

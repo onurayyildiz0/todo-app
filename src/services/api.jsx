@@ -12,20 +12,12 @@ export const fetchTodos = async () => {
   }
 };
 
-export const fetchTodoById = async (id) => {
-  try {
-    const todos = await fetchTodos();
-    return todos.find(todo => todo.id === id);
-  } catch (error) {
-    console.error(`Error fetching todo with id ${id}:`, error);
-    throw error;
-  }
-};
+
 
 export const addTodo = async (todo) => {
   try {
     const response = await axios.post(`${API_URL}?tabId=todo-api`, todo);
-  
+
     return response.data.data;
   } catch (error) {
     console.error('Error adding todo:', error);
@@ -46,7 +38,8 @@ export const updateTodo = async (id, updatedTodo) => {
 export const deleteTodo = async (id) => {
   try {
     const response = await axios.delete(`${API_URL}?tabId=todo-api&row_id=${id}`);
-    return response.data;
+
+    return response.data.data;
   } catch (error) {
     console.error(`Error deleting todo with id ${id}:`, error);
     throw error;
